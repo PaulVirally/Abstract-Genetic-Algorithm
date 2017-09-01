@@ -13,7 +13,7 @@ class Chromosome(object):
                    chromosome.
         """
         self._genes = genes
-        self._fitness = float('-inf')
+        self.fitness = float('-inf')
 
     def _mutate(self, mutation_rate=0.001):
         """Mutates the choromosome to add some randomness to the evolution
@@ -44,6 +44,7 @@ class Chromosome(object):
         """Performs multipoint crossover where the crossover points are only
         on different genes, and not the bits in the genes.
         
+        **This function is referred to as "multipoint by gene"**
         At every gene, there is a chance (equal to `crossover_rate`) that
         a new crossover point will be placed. Here is an example of what the
         function does:
