@@ -10,7 +10,7 @@ class GA(object):
 
         self._pop = []
         for __ in range(self._pop_size):
-            self._pop.append(self._gene_generator_func())
+            self._pop.append(Chromosome(self._gene_generator_func()))
 
     def step(self, selection_algo, crossover_algo, crossover_rate=0.3, mutation_rate=0.001):
         new_pop = []
