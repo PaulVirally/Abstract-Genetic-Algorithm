@@ -34,7 +34,7 @@ class Chromosome:
                     new_gene += '1' if bit == '1' else '0' # Preserve the bit
                         
             if to_int: # If we had an int before, make sure we have an int after
-                new_gene = int('0b' + gene)
+                new_gene = int(gene, 2)
                             
             new_genes.append(new_gene)
 
