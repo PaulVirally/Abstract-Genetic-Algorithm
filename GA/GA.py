@@ -8,6 +8,8 @@ class GA:
         
         self._pop = population
         self._pop_size = len(self._pop)
+        for chromo in self._pop:
+            chromo.fitness = self._fitness_eval(chromo)
 
         self._selection = kwargs.get('selection', roulette_wheel)
         self._num_parents = kwargs.get('num_parents', 2)
