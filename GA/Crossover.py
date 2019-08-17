@@ -4,7 +4,7 @@ from Chromosome import Chromosome
 def single_point(parents):
     """Single point crossover.
 
-    Creates a new Chromosome by combining the genes of both parents. A crossover point is performed and the crossover is performed as follows:
+    Creates a new Chromosome by combining the genes of both parents. A crossover point is found and the crossover is performed as follows:
     Parent A genes:  AAAA AAAA
     Crossover point:     ↕ 
     Parent B genes:  BBBB BBBB
