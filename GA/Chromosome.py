@@ -22,6 +22,7 @@ class Chromosome:
         new_genes = []
         for gene in self.genes:
             # Assume binary encoding in an int format
+            to_int = False
             if isinstance(gene, int):
                 to_int = True
                 gene = bin(gene)[2:] # We now have a string of 1s and 0s
