@@ -40,4 +40,4 @@ class Chromosome:
                             
             new_genes.append(new_gene)
 
-        self.genes = new_gene
+        self.genes = new_genes
