@@ -18,15 +18,13 @@ class GA:
 
     def step(self):
         new_pop = []
-        new_fitnesses = []
         for _ in range(self._pop_size):
-            parents = self._selection(self._pop, self._fitnesses, self._num_parents)
+            parents = self._selection(self._pop, self._num_parents)
             baby = self._crossover(parents)
             baby.mutate(self._mutation_rate)
             baby.fitness = self._fitness_eval(baby)
             new_pop.append(baby)
         self._pop = new_pop
-        self._fitnesses = new_fitnesses
 
     def get_best(self):
         self._pop.sort(key=lambda chromo: chromo.fitness, reverse=True)
