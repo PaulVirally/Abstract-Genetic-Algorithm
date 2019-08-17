@@ -9,6 +9,7 @@ class Chromosome:
             genes {[str]} -- The genes of the chromosome are a list of strings with each string being the encoding of one gene.
         """
         self.genes = genes
+        self.fitness = float('-inf')
 
     def mutate(self, mutation_rate):
         """Mutates the genes of the Chromosome at a rate of `mutation_rate`.

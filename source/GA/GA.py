@@ -8,7 +8,6 @@ class GA:
         
         self._pop = population
         self._pop_size = len(self._pop)
-        self._fitnesses = [float('-inf')]*self._pop_size # TODO: Make fitness part of the Chromosome class?
 
         self._selection = kwargs.get('selection', roulette_wheel)
         self._num_parents = kwargs.get('num_parents', 2)
@@ -24,7 +23,11 @@ class GA:
             parents = self._selection(self._pop, self._fitnesses, self._num_parents)
             baby = self._crossover(parents)
             baby.mutate(self._mutation_rate)
+            baby.fitness = self._fitness_eval(baby)
             new_pop.append(baby)
-            new_fitnesses.append(self._fitness_eval(baby))
         self._pop = new_pop
         self._fitnesses = new_fitnesses
+
+    def get_best(self):
+        self._pop.sort(key=lambda chromo: chromo.fitness, reversed=True)
+        return self._pop[0]
